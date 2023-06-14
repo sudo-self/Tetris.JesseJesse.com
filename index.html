@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tetris 1988 (Space Bar)</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section data-camera="data-camera">
+
+	<section data-scene="data-scene">
+
+		<div class="scene">
+
+			<div class="content" id="content">
+
+				<div class="cuboid top">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+				
+				<div class="cuboid top-bot">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+				
+				<div class="cuboid top-front">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="cuboid bot">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+				
+				<div class="cuboid bot-front">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+				
+				<div class="cuboid bot-top">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="cuboid back">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="cuboid left">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side">
+						<div class="atari">
+							<span class="text">ATARI</span>
+						</div>
+					</div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+				
+				<div class="cuboid left-front">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="cuboid right">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+				
+				<div class="cuboid right-front">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="cuboid box">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+				
+				<div class="cuboid screen">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="cuboid coins">
+					<div class="side">
+						<a class="reload" id="reload" onclick="newCredit()" href="./tetris-arcade.html"><span class="coin"></span></a>
+					</div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="tetris">
+					<canvas width="220" height="440" id="game"></canvas>
+					<div id="score">0</div>
+					<div id="lines">0</div>
+					<div id="round" class="showing">1</div>
+					<div id="insertcoin"></div>
+					<div id="nextpiece"></div>
+					<div id="column"><span id="rainbow"></span></div>
+					<div id="controls">
+						<div>CONTROLS</div>
+						<div>SPIN</div>
+						<div>LEFT</div>
+						<div>RIGHT</div>
+						<div>DOWN</div>
+					</div>
+					<div id="gameover">GAME OVE<span>R</span></div>
+					<div id="stats">STATS
+						<div id="statsI"></div>
+						<div id="statsO"></div>
+						<div id="statsT"></div>
+						<div id="statsS"></div>
+						<div id="statsZ"></div>
+						<div id="statsJ"></div>
+						<div id="statsL"></div>
+					</div>
+					<div class="cupule">
+						<span>BY</span>Jesse R
+						<div class="onion"></div>
+						<div class="onion"></div>
+					</div>
+				</div>
+				
+				<div class="cuboid glass" id="glass">
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+					<div class="side"></div>
+				</div>
+
+				<div class="controller" id="controller">
+					<div id="joystick">
+						<div class="stick-ball">
+							<div class="face">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+							<div class="face">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+							<div class="face">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+							<div class="face">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+							<div class="face">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+							<div class="face">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+						<div class="stick">
+							<div class="cylinder">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>
+					<div class="base"></div>
+					<div class="btn-base">
+						<div id="btn">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+</section>
+
+<audio src="https://cdn.josetxu.com/audio/tetris-credit.mp3" id="a-credit"> </audio>
+<audio src="https://cdn.josetxu.com/audio/tetris-loginska.mp3" id="a-music1" loop preload="auto"> </audio>
+<audio src="https://cdn.josetxu.com/audio/tetris-troika.mp3" id="a-music2" loop preload="auto"> </audio>
+<audio src="https://cdn.josetxu.com/audio/tetris-bradinsky.mp3" id="a-music3" loop preload="auto"> </audio>
+<audio src="https://cdn.josetxu.com/audio/tetris-line.mp3" id="a-line"> </audio>
+<audio src="https://cdn.josetxu.com/audio/tetris-round.mp3" id="a-round"> </audio>
+<audio src="https://cdn.josetxu.com/audio/tetris-gameover.mp3" id="a-gameover"> </audio>
+
+<button id="sound" onclick="toggleSound()" class=""><span class="info"></span></button>
+<button id="music" onclick="togglePlay()" class="off"><span class="info"></span></button>
+<button id="modes" onclick="toggleView()" class=""><span class="info"></span></button>
+<button id="front-glass" onclick="toggleGlass()" class=""><span class="info"></span></button>
+<button id="block-joystick" onclick="toggleJoystick()" class=""><span class="info"></span><span></span></button>
+<button id="center-scene" onclick="centerScene()" class=""><span class="info"></span><span></span></button>
+<!-- partial -->
+  <script src='https://cdn.josetxu.com/js/camera.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
